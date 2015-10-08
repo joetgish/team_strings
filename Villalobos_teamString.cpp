@@ -11,11 +11,18 @@ using namespace std;
 string initials(string strA);
 //Returns the initials of each name, capitalized
 
+int countAlpha(string strA);
+//returns the number of alphabetical 
+
 int main()
 {
-    assert(initials("Thalia Ivette Villalobos") == "TIV");       
+    /*assert(initials("Thalia Ivette Villalobos") == "TIV");       
     assert(initials("maria Sera turing") == "MST"); 
     assert(initials("juan jose sera") == "JJS"); 
+    */
+    assert(countAlpha("juan") == 4);
+    assert(countAlpha("Pink House") == 9);
+    assert(countAlpha("Thalia Ivette Villalobos") == 22);
     return 0;
 }
 
@@ -40,6 +47,22 @@ string initials(string strA)
     return valB+newStrA;
 }
 
+int countAlpha(string strA)
+{
+    int counter = 0;
+    
+    for(int ix=0; ix < strA.length(); ix++)
+    {
+        if(((strA.at(ix) >= 'A') && (strA.at(ix) <= 'Z')) || ((strA.at(ix) >= 'a') && (strA.at(ix) <= 'z'))) //The if statement checks for lower and upper case letters.
+        {
+           counter++;
+        }
+    }
+    
+    //cout << counter << endl;
+   
+    return counter;
+}
 
 
 
