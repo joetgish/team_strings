@@ -14,8 +14,6 @@ int main()
 	assert(initials("Maria Sera Turing") == "MST");
 	assert(initials("maria sera turing") == "MST");
 	assert(initials("Maria sera Turing") == "MST");
-	assert(initials("George W. Bush") == "GWB");
-	assert(initials("Martin luther King") == "MLK");
 	
 	cout << "Code ran correctly :D" << endl;
 
