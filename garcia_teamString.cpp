@@ -13,14 +13,16 @@ bool isPalindrome(string strA);
 
 int main()
 {
-    assert (initials("emily garcia") == "eg");
-    assert (initials("Nicole Bernadette Isidro Hipolito") == "NBIH");
-
+    //assert (initials("emily garcia") == "eg");
+    //assert (initials("Nicole Bernadette Isidro Hipolito") == "NBIH");
     
+    assert (countAlpha("Hello world") == 10);
+    assert (countAlpha("hel*lo 5PEOPle") == 11);
+        
 
     return 0;
 }
-string initials(string strA)
+/*string initials(string strA)
 {
     string addSpace, segment, fullName, init;
     int whitespace;
@@ -39,17 +41,25 @@ string initials(string strA)
         segment = fullName.substr(0, whitespace);
     }
     return init;
-}
-/*int countAlpha(string strA)
+}*/
+int countAlpha(string strA)
 {
     int bucket;
     bucket = 0;
-    for (int i = 0; i < strA.length; i++)
+    for (int i = 0; i < strA.length(); i++)
     {
-        if (strA[i] >= 41) && (strA[i]
+        if (((strA[i] >= 65) && (strA[i] <= 90)) || ((strA[i] >= 97 ) && (strA[i] <= 122 )))
+        {
+            bucket ++;
+        }
+        else
+        {
+            bucket += 0;
+        }
     }
+    return bucket;
 }
-int countWords(string strA)
+/*int countWords(string strA)
 {
 
 }
