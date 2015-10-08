@@ -16,11 +16,11 @@ int main()
     cout << initials("Maria Sera Turing") << endl;
     cout << initials("David James Green") << endl;
     
-    //D
+    /*//D
     assert(isPalindrome("hi") == false);
     assert(isPalindrome("x") == true);
     assert(isPalindrome("R") == true);
-    
+    */
     
     
     return 0;
