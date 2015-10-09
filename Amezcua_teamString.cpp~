@@ -13,6 +13,7 @@ using namespace std;
 
 string initials(string strA);// receives a string comprising first, middle and last name and returns the initials of each name capitalized
 int countAlpha(string strA);// receives a string comprising a sentence, counts and returns the number of alphabetical  
+int countWords(string strA);// receives a string comprising a sentence, counts and returns the number of words in a the sentence.
 int main()
 {
     assert(initials("Maria Sera Turing") == "MST");
@@ -22,6 +23,10 @@ int main()
     assert(countAlpha("123abcd") == 4);
     assert(countAlpha("a23b") == 2);
     assert(countAlpha("Abc 123 HbI 2 j") == 7);
+    
+    assert(countWords("Hello Im Bob.") == 3 );
+    assert(countWords("Computer science") == 2);
+    assert(countWords("12 dogs") == 2);    
     
     return 0;
 
@@ -60,4 +65,28 @@ int countAlpha(string strA)
         }
     }
     return num;
+}
+int countWords(string strA)
+{
+    string copy = strA, word;
+    int wordCount = 0, spaceCount = 0;
+    for (int i = 0; i < strA.length(); i++)
+    {
+         if(isspace(strA[i]))
+        {
+             spaceCount++;
+        }
+    }    
+    for (int ii = 0; ii < strA.length(); ii++)
+    {
+        int space = copy.find(' ');
+        word = copy.substr(0, space);
+        wordCount++;
+        copy = copy.erase(0, space + 1);
+        if(wordCount > spaceCount)
+        {
+            break;
+        }
+    }    
+    return wordCount;
 }

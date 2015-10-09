@@ -14,6 +14,7 @@ using namespace std;
 string initials(string strA);// receives a string comprising first, middle and last name and returns the initials of each name capitalized
 int countAlpha(string strA);// receives a string comprising a sentence, counts and returns the number of alphabetical  
 int countWords(string strA);// receives a string comprising a sentence, counts and returns the number of words in a the sentence.
+bool isPalindrome(string strA); // receives a string and returns true if the string is a palindrome
 int main()
 {
     assert(initials("Maria Sera Turing") == "MST");
@@ -27,6 +28,12 @@ int main()
     assert(countWords("Hello Im Bob.") == 3 );
     assert(countWords("Computer science") == 2);
     assert(countWords("12 dogs") == 2);    
+    
+    assert(isPalindrome("racecar") == 1);
+    assert(isPalindrome("mom") == 1);
+    assert(isPalindrome("nursesrun") == 1);
+    assert(isPalindrome("A") == 1);
+    assert(isPalindrome("ran") == 0);
     
     return 0;
 
@@ -89,4 +96,25 @@ int countWords(string strA)
         }
     }    
     return wordCount;
+}
+bool isPalindrome(string strA)
+{
+    string frontwards, backwards;
+    for(int i = 0; i < strA.length(); i++)
+    {
+        frontwards  += strA[i];      
+    }
+    for(int i = strA.length() - 1; i > -1; i--)
+    {
+        backwards  += strA[i];      
+    }
+   
+    if(backwards == frontwards)
+    {
+        return true;
+    }    
+    else
+    {
+        return false;
+    }   
 }
