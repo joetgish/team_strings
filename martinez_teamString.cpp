@@ -29,16 +29,19 @@ bool isPalindrome(string strA)
 using namespace std;
 
 string initials(string strA); //prototype receives a string comprising first, middle and last name and
+int countAlpha(string strA);
 
 int main()
 {
+    string strA = "mario Martinez Alex";
 /*
-    string name = "mario Martinez Alex";
     assert(initials(name) == "MMA");
     assert(initials("Jose luna jr") == "JLJ");
     assert(initials("Maria Sera Turing") == "MST");
     */
-    
+    assert(countAlpha("Cohort") == 6);
+    assert(countAlpha("CSIN3") == 4);
+    assert(countAlpha("Work Hard") == 8);
 
     return 0;
 }
@@ -65,3 +68,16 @@ string initials(string strA)//prototype receives a string comprising first, midd
     return init;
 }
 
+int countAlpha(string strA)
+{
+    int count = 0;
+    for(int i = 0; i < strA.length(); i++)
+    {
+        if((strA[i] > 64 && strA[i] < 91) || (strA[i] > 96 && strA[i] < 123))
+        {
+            count++;
+        }
+    }
+
+    return count;
+}
