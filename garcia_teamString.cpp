@@ -10,17 +10,21 @@ string initials(string strA);
 int countAlpha(string strA);
 int countWords(string strA);
 bool isPalindrome(string strA);
+string lowerAll(string stringA);
 
 int main()
 {
-    //assert (initials("emily garcia") == "eg");
+    //assert (initials("Emily Garcia") == "EG");
     //assert (initials("Nicole Bernadette Isidro Hipolito") == "NBIH");
     
     //assert (countAlpha("Hello world") == 10);
     //assert (countAlpha("hel*lo 5PEOPle") == 11);
     
-    assert (countWords("hello people of earth") == 4);
-    assert (countWords("hello everyone") == 2);
+    //assert (countWords("hello people of earth") == 4);
+    //assert (countWords("hello everyone") == 2);
+    
+    assert (isPalindrome("Never odd or even?") == true);
+    assert (isPalindrome("mother") == false);
     
 
     return 0;
@@ -37,7 +41,7 @@ int main()
     {
         for (int i = 0; i < 1; i++)
         {
-            init = init + segment[0];
+            init = init + toupper(segment[0]);
         }
         fullName = fullName.erase(0, whitespace + 1);
         whitespace = fullName.find(" ");
@@ -60,9 +64,8 @@ int countAlpha(string strA)
             bucket += 0;
         }
     }
-    return bucket;
-
-}*/
+    return bucket
+}
 int countWords(string strA)
 {
     string addSpace, segment, fullPhrase;
@@ -81,8 +84,31 @@ int countWords(string strA)
         segment = fullPhrase.substr(0, whitespace);
     }
     return bucket;
-}
-/*bool isPalindrome(string strA)
-{
-
 }*/
+bool isPalindrome(string strA)
+{
+    string bucket, comparison;
+
+    for (int i = 0; i < strA.length(); i++)
+    {
+        if (((strA[i] >= 65) && (strA[i] <= 90)) || ((strA[i] >= 97 ) && (strA[i] <= 122 )))
+        {
+            bucket += tolower(strA[i]);
+        }
+    }
+    for (int i = strA.length() - 1; i >= 0; i--)
+    {
+        if (((strA[i] >= 65) && (strA[i] <= 90)) || ((strA[i] >= 97 ) && (strA[i] <= 122 )))
+        {
+            comparison += tolower(strA[i]);
+        }
+    }
+    if (bucket == comparison)
+    {
+        return true;
+    }
+    else
+    {
+         return false;
+    }
+}
