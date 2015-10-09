@@ -22,7 +22,10 @@ int main()
   assert(isPalindrome("a")== 1); 
   assert(isPalindrome("bear") == 0);
   
-  assert(initials( "Dario Alejandro Molina") =="DAM");
+  assert(initials( "dario Alejandro molina") == "DAM");
+  assert(initials("Diego Medina") == "DM");
+  assert(initials("Computer Science is Awesome")=="CSIA");
+  
   
   
 return 0;
@@ -30,7 +33,7 @@ return 0;
 
 string initials(string strA)
 {
-  string caps;
+  string caps, caps1;
   caps = strA.substr(0,1);
   
   for( int i = 0; i < strA.length() -1; i++)
@@ -40,7 +43,13 @@ string initials(string strA)
       caps = caps + strA.at(i+1);
   }
 
-  return caps;
+   for( int j = 0; j < caps.length(); j++)
+    {
+    
+       caps1 += toupper( caps.at(j));
+    
+    }
+  return caps1;
 
 }
 
