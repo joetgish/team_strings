@@ -50,6 +50,14 @@ int main()
     assert(countWords("What makes you happy?") == 4);
     assert(countWords("If you want to be happy, be.") == 7);
     //END INT COUNT WORDS FUNCTION
+    
+    //BOOL IS PALINDROME FUNCTION
+    assert(isPalindrome("ra, ce, ca@ r") == true);
+    assert(isPalindrome("POOP") == true);
+    assert(isPalindrome("WOAH, MOM, HA! OW!") == true);
+    assert(isPalindrome("M") == true);
+    assert(isPalindrome("mavey") == false);
+    //END BOOL IS PALINDROME FUNCTION
 
     cout << "PANDAS WILL SMILE!" << endl;
     return 0;
@@ -131,3 +139,52 @@ int countWords(string strA)
     output ++; //FOR THE EXTRA WORD AT THE END THAT IS NOT FOLLOWED BY A SPACE
     return output; 
 }//END COUNT WORDS
+bool isPalindrome(string strA)
+{
+    int output = false;
+    string forwards, backwards;
+    int count = 0;
+    //CHECK FOWARDS
+    for (count = 0; count < strA.length(); count++)
+    { 
+        if ((strA[count] >= 'a') && (strA[count] <= 'z'))
+        {
+            forwards += makeUpper(strA[count]);
+        }
+        else if ((strA[count] >= 'A') && (strA[count] <= 'Z'))
+        {
+            forwards += strA[count];
+        }
+        else
+        {
+            continue;
+        }
+    }
+    //CHECK BACKWARDS
+    //count = strA.length() - 1;
+    for (count = strA.length() - 1; count >= 0; count--)
+    { 
+        if ((strA[count] >= 'a') && (strA[count] <= 'z'))
+        {
+            backwards += makeUpper(strA[count]);
+        }
+        else if ((strA[count] >= 'A') && (strA[count] <= 'Z'))
+        {
+            backwards += strA[count];
+        }
+        else
+        {
+            continue;
+        }
+    }
+    /*
+    cout << forwards << endl;
+    cout << backwards << endl;
+    */
+    //CHECK IF IT'S A PALINDROME
+    if (forwards == backwards)
+    {
+        output = true;
+    }
+    return output;
+}
