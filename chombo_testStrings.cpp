@@ -27,9 +27,10 @@ int main()
     assert(countWords("Good Job") == 2);
     assert(countWords("What Up") == 2);
     
+    assert(isPalindrome("anna") == true);
+    assert(isPalindrome("mom") == true);
+    assert(isPalindrome("cat") == false);
     cout << "Yay it Ran" << endl;
-    assert(isPalindrome("ana") == true);
-
     return 0; 
 }
 string initials(string strA)
@@ -82,9 +83,9 @@ bool isPalindrome(string strA)
     
     for (int ix = strA.length()-1; ix >= 0; ix--)
     {
-        newStrA += strA;
-        
-        if (newStrA == strA)
+        newStrA += strA[ix];
+    }
+    if (newStrA == strA)
         {
             return true;
         }
@@ -92,7 +93,6 @@ bool isPalindrome(string strA)
         {
             return false;
         }
-    }
 }
 
 
