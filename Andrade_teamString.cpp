@@ -24,12 +24,17 @@ using namespace std;
 
 
 string initials(string strA);
+int countAlpha(string strA);
 
 int main()
 {
     assert(initials("Maria Sera Turing") == "MST");
     assert(initials("mary rose villas") == "MRV");
     assert(initials("Israel Andrade Mancha negra") == "IAMN");
+    
+    assert(countAlpha("Maria Sera Turing") == 15);
+    assert(countAlpha("Hello World") == 10);
+    assert(countAlpha("Lenovo!") == 6);
     
     return 0;   
 }
@@ -52,4 +57,19 @@ string initials(string strA)
         newWord = strA.substr(0, index);
     }
     return initials;
+}
+
+int countAlpha(string strA)
+{
+    int counter = 0;
+    
+    for(int i = 0; i < strA.length(); i++)
+    {
+        
+        if((strA[i] >= 65 && strA[i] <= 90) || (strA[i] >= 97 && strA[i] <= 122))
+        {
+            counter ++;
+        }
+    }
+    return counter;
 }
