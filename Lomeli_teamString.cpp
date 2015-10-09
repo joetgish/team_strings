@@ -27,23 +27,27 @@ int countWords(string strA);
 // receives a string comprising a sentence, counts and returns the number of words in a the sentence.
 // words are separated by spaces.
 
-//bool isPalindrome(string strA)
+bool isPalindrome(string strA);
 // receives a string and returns true if the string is a palindrome
 // a one character string will be considered a palindrome
 int main()
 {
     
-    //assert(initials("maria sera turing") == "MST");
-    //assert(initials("andrea Marcela gomez") == "AMG");
-    //assert(initials("Ben Andrew Lopez") == "BAL");
+    assert(initials("maria sera turing") == "MST");
+    assert(initials("andrea Marcela gomez") == "AMG");
+    assert(initials("Ben Andrew Lopez") == "BAL");
     
-    //assert(countAlpha("Ben Andrew 234325#$@5! ") == 9);
-    //assert(countAlpha("ABCabc123!@#") == 6);
-    //assert(countAlpha("234%^&*123!@#") == 0);
+    assert(countAlpha("Ben Andrew 234325#$@5! ") == 9);
+    assert(countAlpha("ABCabc123!@#") == 6);
+    assert(countAlpha("234%^&*123!@#") == 0);
     
     assert(countWords("one two three four") == 4);
     assert(countWords("one two") == 2);
     assert(countWords("one") == 1);
+    
+    assert(isPalindrome("racecar") == 1);
+    assert(isPalindrome("rats live on no evil star") == 1);
+    assert(isPalindrome("Deed") == 0);
     cout << "It works!"<< endl;
 
     return 0;
@@ -51,13 +55,13 @@ int main()
 string initials(string strA)
 {
     int i = 0;
-    string initials = strA.substr(0,1);
-    initials = toupper(initials[0]);
+    string initials = strA.substr(0,1);//this is the first initial
+    initials = toupper(initials[0]);//makes first initial a capital
     for(int ix(1); ix < strA.length(); ix++)
     {            
         if (strA[ix] == ' ')
         {                      
-            initials += toupper(strA[ix+1]);                        
+            initials += toupper(strA[ix+1]);//adds the other initials already capitalized                        
         }//if       
     }//for
     return initials;
@@ -67,7 +71,7 @@ int countAlpha(string strA)
     int sum = 0;
     for(int ix(0); ix < strA.length(); ix++)
     {
-        if((strA[ix] >= 65) && (strA[ix] <= 90) || (strA[ix] >= 97) &&(strA[ix] <= 122))
+        if((strA[ix] >= 65) && (strA[ix] <= 90) || (strA[ix] >= 97) &&(strA[ix] <= 122))//this checks if there is a letter or not
         {
             sum ++;
         }//if
@@ -80,7 +84,7 @@ int countWords(string strA)
     int count = 0;
     for (int ix(0); ix < strA.length(); ix++)
     {
-        if (strA[ix] == ' ')
+        if (strA[ix] == ' ')//when it finds a space it will add to the count
         {
             count ++;
         }//if
@@ -88,3 +92,17 @@ int countWords(string strA)
     }//for
     return count + 1;
 }//countWords
+bool isPalindrome(string strA)
+{
+    string strB;
+    for (int ix(strA.length()-1); ix >= 0; ix--)//the string will be spelled from end to beginning
+    {
+        strB += strA[ix];   
+    }//for
+    if (strA == strB)
+    {
+        return true;
+    }//if
+    else
+        return false;
+} //bool isPalindrome(string strA)
