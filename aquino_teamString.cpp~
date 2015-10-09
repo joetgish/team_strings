@@ -21,6 +21,12 @@ int countWords(string strA);
 // receives a string comprising a sentence, counts and returns the number of words in a the sentence.
 // words are separated by spaces.
 
+bool isPalindrome(string strA);
+// receives a string and returns true if the string is a palindrome
+// a one character string will be considered a palindrome
+
+string removeSpaces(string sequence);
+
 
 
 int main()
@@ -36,7 +42,14 @@ int main()
         << "\tSentence: " << sentence << endl
         << "\tLetter Count: " << countAlpha(sentence) << endl
         << "\tWord Count: " << countWords(sentence) << endl;
-        
+    
+    string randomLetters = "1a2l3s4k5d6j7f8h9g0", sameWord = "rot a renegade wed a generator";
+    cout 
+        << "Non-palindrome: " << randomLetters << endl
+        << "Should be false: " << boolalpha << isPalindrome(randomLetters) << endl
+        << "Palindrome: " << sameWord << endl
+        << "Should be true: " << boolalpha << isPalindrome(sameWord) << endl;
+         
     
     return 0;
     
@@ -96,7 +109,7 @@ int countWords(string strA)
         /*  divide strA into words (ie., substrings)
             that start at the current index [ix]
             and have a length equivalent to the index 
-            where a whitespace is located   */
+            where the upcoming whitespace is located   */
             
         ix = strA.find(' ', ix) + 1;    // re-assign [ix] to be the value after the whitespace
         result++;   // increment result after each substring is obtained
@@ -104,3 +117,46 @@ int countWords(string strA)
     
     return result;
 }   // countWords()
+
+//******************************
+bool isPalindrome(string strA)
+{
+    strA = removeSpaces(strA);  // remove whitespaces in strA
+    cout << strA << " is the string without spaces" << endl;
+    bool isFound = true;
+    
+    int start = 0, end = strA.length() - 1;
+    
+    while( (strA[start] == strA[end]) && (start != end) )
+    {
+        start++;
+        end--;
+        
+        /*if (start == end)
+        {
+            return true;
+        }*/
+        
+        return true;
+    }
+    
+    return false;
+    
+
+}   // isPalindrome()
+
+//******************************
+string removeSpaces(string sequence)
+{
+    sequence += ' ';
+    
+    for(int ix = 0; ix < sequence.length(); ix++)
+    {
+        int space = sequence.find(' ', ix);
+        sequence.erase(space, 1);
+        
+        ix = space;
+    }
+    return sequence;
+
+}

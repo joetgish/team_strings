@@ -21,6 +21,12 @@ int countWords(string strA);
 // receives a string comprising a sentence, counts and returns the number of words in a the sentence.
 // words are separated by spaces.
 
+bool isPalindrome(string strA);
+// receives a string and returns true if the string is a palindrome
+// a one character string will be considered a palindrome
+
+string removeSpaces(string sequence);
+
 
 
 int main()
@@ -36,7 +42,14 @@ int main()
         << "\tSentence: " << sentence << endl
         << "\tLetter Count: " << countAlpha(sentence) << endl
         << "\tWord Count: " << countWords(sentence) << endl;
-        
+    
+    string randomLetters = "1a2l3s4k5d6j7f8h9g0", sameWord = "rot a renegade wed a generator";
+    cout 
+        << "Non-palindrome: " << randomLetters << endl
+        << "Should be false: " << boolalpha << isPalindrome(randomLetters) << endl
+        << "Palindrome: " << sameWord << endl
+        << "Should be true: " << boolalpha << isPalindrome(sameWord) << endl;
+         
     
     return 0;
     
@@ -78,7 +91,7 @@ int countAlpha(string strA)
     } 
     
     return result;
-}   // countAlpha()
+} // countAlpha()
 
 //******************************
 int countWords(string strA)
@@ -103,4 +116,50 @@ int countWords(string strA)
     }
     
     return result;
-}   // countWords()
+} // countWords()
+
+//******************************
+bool isPalindrome(string strA)
+{
+    strA = removeSpaces(strA);  // remove whitespaces in strA
+    
+    int start = 0, end = strA.length() - 1;
+    
+    //  execute while the letter at the start and end of strA are the same
+    while( (strA[start] == strA[end]) && (start != end) )
+    {
+        start++;
+        end--;
+        /*  increment [start] and decrement [end] 
+            so that the loops searches through each
+            letter of strA, going inwards of the word   */
+        
+        return true;
+    }
+    
+    return false;
+    /*  if the start and end letters don't match, 
+        it is not a palindrome  */
+    
+
+} // isPalindrome()
+
+//******************************
+string removeSpaces(string sequence)
+{
+    sequence += ' ';    // add a whitespace at the end of sequence
+    
+    //  traverse through each character in sequence
+    for(int ix = 0; ix < sequence.length(); ix++)
+    {
+        int space = sequence.find(' ', ix); 
+        /*  find the index of the first occurence 
+            of a whitespace, starting at index [ix] */
+            
+        sequence.erase(space, 1);   // erase the substring of size 1, starting at position [space]
+        
+        ix = space; // re-assign index [ix] to the value of the index where the whitespace was found
+    }
+    return sequence;
+
+} // removeSpaces()
