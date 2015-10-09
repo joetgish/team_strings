@@ -1,0 +1,119 @@
+// Name: Regie Daquioag
+// Date: October 8, 2015
+// Project: Team string Assignment
+
+#include <iostream>
+#include <cassert>
+using namespace std;
+
+string initials(string strA); //A
+int countAlpha(string strA); //B
+int countWords(string strA); //C
+bool isPalindrome(string strA); //D
+
+int main()
+{
+    /*
+    //A
+    assert(initials("Regie Cabanting Daquioag") == "RCD");
+    assert(initials("Maria Sera Turing") == "MST");
+    assert(initials("David James Green") == "DJG");
+    
+    //B
+    assert(countAlpha("Peter Piper picked a peck of pickled peppers") == 37);
+    assert(countAlpha("How much wood would a woodchuck chuck if a woodchuck could chuck wood") == 57);
+    assert(countAlpha("She sells seashells by the seashore") == 30);
+    */  
+    //C
+    assert(countWords("Hello my name is Regie") == 5);
+    assert(countWords("I am a programmer now!!") == 5);
+    assert(countWords("I really want to sleep right now but I cannot") == 10);
+    
+    //D
+    assert(isPalindrome("hi") == false);
+    assert(isPalindrome("x") == true);
+    assert(isPalindrome("R") == true);
+      
+    
+    return 0;
+}
+
+
+//A
+string initials(string strA)
+{
+    // receives a string comprising first, middle and last name and returns 
+//the initials of each name, capitalized
+
+    string answer;
+    int length = strA.length();
+    
+    for (int ix = 0; ix < length; ix++)
+    {
+        if (strA[ix] >= 'A' && strA[ix] <= 'Z')
+        {
+            answer += strA[ix];
+        }
+    }
+    
+    return answer;
+}
+
+
+//B
+int countAlpha(string strA)
+{
+    // receives a string comprising a sentence, counts and returns the number of alphabetical 
+// characters a -> z  and A -> Z are the alphabetical characters. 
+
+    int countAlphaCount = 0;
+    int length = strA.length();
+    
+    for (int ix = 0; ix < length; ix++)
+    {
+        if ((strA[ix] >= 'A' && strA[ix] <= 'Z') || (strA[ix] >= 'a' && strA[ix] <= 'z'))
+        {
+            countAlphaCount++;
+        }
+    }
+    return countAlphaCount;
+}
+
+//C
+int countWords(string strA)
+{
+    // receives a string comprising a sentence, counts and returns the number of words in a the sentence.
+// words are separated by spaces.
+
+    int spaceCount = 0;
+    int length = strA.length();
+    
+    for (int ix = 0; ix < length; ix++)
+    {
+        if (strA[ix] == ' ')
+        {
+            spaceCount++;
+        }
+        
+    }
+    return (spaceCount+1);
+}
+
+//D
+bool isPalindrome(string strA)
+{
+    // receives a string and returns true if the string is a palindrome
+// a one character string will be considered a palindrome
+
+    int length = strA.length();
+    
+        if (length == 1)
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }   
+}
+
