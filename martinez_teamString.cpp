@@ -30,18 +30,26 @@ using namespace std;
 
 string initials(string strA); //prototype receives a string comprising first, middle and last name and
 int countAlpha(string strA);
+int countWords(string strA);
 
 int main()
 {
     string strA = "mario Martinez Alex";
 /*
+    //Test cases for the initials function
     assert(initials(name) == "MMA");
     assert(initials("Jose luna jr") == "JLJ");
     assert(initials("Maria Sera Turing") == "MST");
-    */
+    
+    //Test cases for the countAlpha function
     assert(countAlpha("Cohort") == 6);
     assert(countAlpha("CSIN3") == 4);
     assert(countAlpha("Work Hard") == 8);
+    */
+    //Test cases for the countWords function
+    assert(countWords("Hartnell is the best college") == 5);
+    assert(countWords("Welcome") == 1);
+    assert(countWords("receives a string comprising a sentence, counts and returns the number of words in a the sentence.") == 17);
 
     return 0;
 }
@@ -80,4 +88,23 @@ int countAlpha(string strA)
     }
 
     return count;
+}
+
+int countWords(string strA)
+{
+    int number_of_Words = 0;
+    string initials;
+    for(int i = 0; i < strA.length(); i++)
+    {
+        if(strA[i] != ' ')
+        {
+            initials = initials + strA[i];
+        }
+        if(strA[i] == ' ' || i == strA.length()-1)
+        {
+            number_of_Words++;
+        }  
+    }
+
+    return number_of_Words;
 }
