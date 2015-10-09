@@ -26,12 +26,28 @@ bool isPalindrome(string strA);
 
 int main (){
 
+    assert(initials("Sarah Brianne Villegas") == "SBV");
+    assert(initials("Jose Manuel Perez ") == "JMP");
+    assert(initials("Joel Verduzco") == "JV");
+    assert(countAlpha("steven87932tv") == 8);
+    assert(countAlpha("world12unknown") == 12);
+    assert(countAlpha("bubba2cool4school") == 15);
+    assert(countWords("My dos is cooler than yours") == 6);
+    assert(countWords("Who let the dogs out") == 5);
+    assert(countWords("There's a squirrel in my boot'") == 6);
+    assert(isPalindrome("racecar") == true);
+    assert(isPalindrome("carl") == false);
+    assert(isPalindrome("boob") == true);
 
+
+
+
+    /*
     cout << initials("Sarah Brianne Villegas") << endl;
     cout << countAlpha("steven87932tv") << endl;
     cout << countWords("i love my dog bubba he's awesome") << endl;
-    cout << isPalindrome("bob") << endl;
-
+    cout << isPalindrome("racecar") << endl;
+    */
 
     return 0; 
 }
