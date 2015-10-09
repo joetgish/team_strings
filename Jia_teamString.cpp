@@ -12,6 +12,7 @@ int countAlpha(string strA); // receives a string and outputs the number of alph
 							 // characters
 int countWords(string strA); // receives a string that comprises a sentence and counts the
 							 // number of words in it
+bool isPalindrome(string strA); // receives a string and checks if it is a valid Palindrome
 							 
 int main()
 {
@@ -32,6 +33,12 @@ int main()
 	assert(countWords("Do you wanna build a snowman?") == 6);
 	assert(countWords("Here's Johnny!") == 2);
 	assert(countWords("Come to the dark side, we have comments!") == 8);
+	
+	assert(isPalindrome("r") == 1);
+	assert(isPalindrome("Rats live on no evil star.") == 1);
+	assert(isPalindrome("This is not a Palindrome.") == 0);
+	assert(isPalindrome("Do Good's deeds live on? No, Evil's deeds do, O God.") == 1);
+	assert(isPalindrome("This is false.") == 0);
 	
 	cout << "Code ran correctly :D" << endl;
 
@@ -83,4 +90,36 @@ int countWords(string strA)
 	count += 1; // last word won't have a white space after it so 1 is automatically added
 
 	return count;
+}
+
+bool isPalindrome(string strA)
+{
+	string palindrome, strB;
+	
+	for (int ix = 0; ix < strA.length(); ix++)
+	{
+		if ((strA[ix] >= 65 && strA[ix] <= 90) || (strA[ix] >= 97 && strA[ix] <= 122)) // only
+								// takes alphabetical letters
+		{
+			strB += tolower(strA[ix]); // makes the inputted string lowercase
+		}
+	}
+	
+	for (int ix = strB.length() - 1; ix >= 0; ix--) // returns the inputted string reversed
+	{
+		if ((strB[ix] >= 65 && strB[ix] <= 90) || (strB[ix] >= 97 && strB[ix] <= 122)) // only
+								// takes alphabetical letters
+		{
+			palindrome += strB[ix];
+		} 
+	}
+	
+	if (palindrome == strB)
+	{
+		return true;
+	}
+	else if (palindrome != strB)
+	{
+		return false;
+	}
 }
