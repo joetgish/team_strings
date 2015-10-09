@@ -10,6 +10,7 @@ using namespace std;
 string initials(string strA);
 int countAlpha(string strA);
 int countWords(string strA);
+bool isPalindrome(string strA);
 
 int main()
 {
@@ -24,6 +25,10 @@ int main()
     assert(countWords("I just want to lay in bed and sleep all day") == 11);
     assert(countWords("It's cold right now, can I borrow your jacket?") == 9);
     assert(countWords("Friends talk behind your back while a bestfriend compliments you behind your back.") == 13);
+    
+    cout << isPalindrome("a") << endl;
+    cout << isPalindrome("elle") << endl;    
+    cout << isPalindrome("no.") << endl;
     
     return 0;
 }   
@@ -73,9 +78,50 @@ int countWords(string strA)
     return count + 1;
 }
 
+bool isPalindrome(string strA)
+{
+    int count = 0; //this counts how many characters are alike.
+    int i;
+    char letter;
+    
+    for(i = 0; i < strA.length(); i++) //goes through every char
+    {
+        letter = strA.at(i);
+        if(letter == 32) //find whitespace
+        {
+            strA.erase(i, 1); //delete whitespace
+        }
+    }
+    
+    if(strA.length() == 1) //if there's only one char, it's automatically a palindrome
+    {
+        return true;
+    }
+    
+    else
+    {
 
-
-
-
-
+            if(strA.length() % 2 == 0) //if the length of the character is even, execute the following code
+            {
+                for(i = 0; i < (strA.length()/2); i++)//goes through every char by only goes halfway
+                {
+                    letter = strA.at(i);
+                    char otherLetter = strA.at((strA.length()-1-i));
+                    if(letter == otherLetter)
+                    {
+                           count ++;
+                    }
+                }
+            }
+            
+            if(count == strA.length()/2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+    }
+}
 
