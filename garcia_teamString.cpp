@@ -16,9 +16,12 @@ int main()
     //assert (initials("emily garcia") == "eg");
     //assert (initials("Nicole Bernadette Isidro Hipolito") == "NBIH");
     
-    assert (countAlpha("Hello world") == 10);
-    assert (countAlpha("hel*lo 5PEOPle") == 11);
-        
+    //assert (countAlpha("Hello world") == 10);
+    //assert (countAlpha("hel*lo 5PEOPle") == 11);
+    
+    assert (countWords("hello people of earth") == 4);
+    assert (countWords("hello everyone") == 2);
+    
 
     return 0;
 }
@@ -41,7 +44,7 @@ int main()
         segment = fullName.substr(0, whitespace);
     }
     return init;
-}*/
+}
 int countAlpha(string strA)
 {
     int bucket;
@@ -59,25 +62,27 @@ int countAlpha(string strA)
     }
     return bucket;
 
-}/*int countWords(string strA)
+}*/
+int countWords(string strA)
 {
-    string addSpace, segment, fullName, bucket;
-    int whitespace;
+    string addSpace, segment, fullPhrase;
+    int whitespace, bucket;
+    bucket = 0;
     addSpace = " ";
-    fullName = strA + addSpace;
+    fullPhrase = strA + addSpace;
     whitespace = strA.find(" ");
     segment= strA.substr(0, whitespace);
-    while (fullName.length() > 0)
+    while (fullPhrase.length() > 0)
     {
         bucket += 1;
 
-        fullName = fullName.erase(0, whitespace + 1);
-        whitespace = fullName.find(" ");
-        segment = fullName.substr(0, whitespace);
+        fullPhrase = fullPhrase.erase(0, whitespace + 1);
+        whitespace = fullPhrase.find(" ");
+        segment = fullPhrase.substr(0, whitespace);
     }
     return bucket;
 }
-bool isPalindrome(string strA)
+/*bool isPalindrome(string strA)
 {
 
 }*/
