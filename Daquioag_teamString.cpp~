@@ -18,17 +18,22 @@ int main()
     assert(initials("Regie Cabanting Daquioag") == "RCD");
     assert(initials("Maria Sera Turing") == "MST");
     assert(initials("David James Green") == "DJG");
-    */
+    
     //B
     assert(countAlpha("Peter Piper picked a peck of pickled peppers") == 37);
     assert(countAlpha("How much wood would a woodchuck chuck if a woodchuck could chuck wood") == 57);
     assert(countAlpha("She sells seashells by the seashore") == 30);
-    /*  
+    */  
+    //C
+    assert(countWords("Hello my name is Regie") == 5);
+    assert(countWords("I am a programmer now!!") == 5);
+    assert(countWords("I really want to sleep right now but I cannot") == 10);
+    
     //D
     assert(isPalindrome("hi") == false);
     assert(isPalindrome("x") == true);
     assert(isPalindrome("R") == true);
-    */    
+      
     
     return 0;
 }
@@ -37,7 +42,8 @@ int main()
 //A
 string initials(string strA)
 {
-    // receives a string comprising first, middle and last name and returns the initials of each name, capitalized
+    // receives a string comprising first, middle and last name and returns 
+//the initials of each name, capitalized
 
     string answer;
     int length = strA.length();
@@ -63,7 +69,7 @@ int countAlpha(string strA)
     int countAlphaCount = 0;
     int length = strA.length();
     
-    for (int ix = 0;ix < length; ix++)
+    for (int ix = 0; ix < length; ix++)
     {
         if ((strA[ix] >= 'A' && strA[ix] <= 'Z') || (strA[ix] >= 'a' && strA[ix] <= 'z'))
         {
@@ -76,8 +82,21 @@ int countAlpha(string strA)
 //C
 int countWords(string strA)
 {
-// receives a string comprising a sentence, counts and returns the number of words in a the sentence.
+    // receives a string comprising a sentence, counts and returns the number of words in a the sentence.
 // words are separated by spaces.
+
+    int spaceCount = 0;
+    int length = strA.length();
+    
+    for (int ix = 0; ix < length; ix++)
+    {
+        if (strA[ix] == ' ')
+        {
+            spaceCount++;
+        }
+        
+    }
+    return (spaceCount+1);
 }
 
 //D
