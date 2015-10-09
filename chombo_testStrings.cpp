@@ -10,6 +10,7 @@ using namespace std;
 string initials(string strA);
 int countAlpha(string strA);
 bool isPalindrome(string strA);
+int countWords(string strA);
 
 
 int main()
@@ -18,7 +19,14 @@ int main()
     assert(initials("Sandra Flores") == "SF");
     assert(initials("Thalia Villalobos") == "TV");
     
-    assert(countAlpha("Maria Chombo") == 11);
+    assert(countAlpha("Chombo") == 6);
+    assert(countAlpha("Cow") == 3);
+    assert(countAlpha("Hello") == 5);
+    
+    assert(countWords("Hello there") == 2);
+    assert(countWords("Good Job") == 2);
+    assert(countWords("What Up") == 2);
+    
     cout << "Yay it Ran" << endl;
     assert(isPalindrome("ana") == true);
 
@@ -53,6 +61,20 @@ int countAlpha(string strA)
     
     return count;
 
+}
+int countWords(string strA)
+{
+    int count = 1;
+    
+    for ( int i = 0; i < strA.length(); i ++)  
+    {
+        if (strA.at(i) == ' ')
+        {
+            count ++;
+        }
+       
+    }   
+    return count;
 }
 bool isPalindrome(string strA)
 {
