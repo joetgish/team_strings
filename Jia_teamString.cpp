@@ -10,6 +10,8 @@ string initials(string strA); // receives first, middle, and last name then retu
 							  // initials capitalized
 int countAlpha(string strA); // receives a string and outputs the number of alphabetical
 							 // characters
+int countWords(string strA); // receives a string that comprises a sentence and counts the
+							 // number of words in it
 							 
 int main()
 {
@@ -24,6 +26,12 @@ int main()
 	assert(countAlpha("The cake is a lie.") == 13);
 	assert(countAlpha("Don't make contracts with weird-looking animals.") == 40);
 	assert(countAlpha("How many letters are in this string? 29?") == 29);
+	
+	assert(countWords("This sentence should have eight words in it.") == 8);
+	assert(countWords("First rule of fight club is: you do not talk about fight club.") == 13);
+	assert(countWords("Do you wanna build a snowman?") == 6);
+	assert(countWords("Here's Johnny!") == 2);
+	assert(countWords("Come to the dark side, we have comments!") == 8);
 	
 	cout << "Code ran correctly :D" << endl;
 
@@ -62,3 +70,17 @@ int countAlpha(string strA)
 	return count;
 }
 		
+int countWords(string strA)
+{
+	int count = 0;
+	for (int ix = 0; ix < strA.length(); ix++)
+	{
+		if (strA[ix] == 32) // increases count whenever a white space is found
+		{
+			count++;
+		}
+	}
+	count += 1; // last word won't have a white space after it so 1 is automatically added
+
+	return count;
+}
