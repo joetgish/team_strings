@@ -12,11 +12,16 @@
 using namespace std;
 
 string initials(string strA);// receives a string comprising first, middle and last name and returns the initials of each name capitalized
+int countAlpha(string strA);// receives a string comprising a sentence, counts and returns the number of alphabetical  
 int main()
 {
     assert(initials("Maria Sera Turing") == "MST");
     assert(initials("John P. Doe") == "JPD");
     assert(initials("Brandon Oscar Brians") == "BOB");
+    
+    assert(countAlpha("123abcd") == 4);
+    assert(countAlpha("a23b") == 2);
+    assert(countAlpha("Abc 123 HbI 2 j") == 7);
     
     return 0;
 
@@ -43,4 +48,16 @@ string initials(string strA)
         }
     }
     return initials;
+}
+int countAlpha(string strA)
+{
+    int num = 0;
+    for(int i = 0; i < strA.length(); i++)
+    {
+        if(isalpha(strA[i]))
+        {
+            num++;
+        }
+    }
+    return num;
 }
