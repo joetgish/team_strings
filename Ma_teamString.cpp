@@ -2,8 +2,8 @@
 // Created: Thursday, October 8, 2015
 // GitHub CSS Lab team_strings HW assignment
 // Fully implement the functions below, incorporating asserts as appropriate to test.
-#include <string>
-#include <iostream>
+#include <string> //string
+#include <iostream> //cout, cin
 #include <cassert> //assert()
 
 using namespace std;
@@ -25,7 +25,7 @@ bool isPalindrome(string strA);
 // a one character string will be considered a palindrome
 
 int main()
-{
+{   
     //STRING INITIALS FUNCTION
     string input;
     cout << "Please enter your full name (first, middle, last)." << endl;
@@ -36,9 +36,16 @@ int main()
     assert(initials("Mavey june Ma") == "MJM");
     assert(initials("terra lockheart laforet") == "TLL");
     //END STRING INITIALS FUNCTION
+    
+    //INT COUNT ALPHA FUNCTION
+    assert(countAlpha("12345m") == 1);
+    assert(countAlpha("mAvEyJuNeMa") == 11);
+    assert(countAlpha("C0mput3r5 4ever") == 10);
+    assert(countAlpha("{}|+-)(*&^%$#@!~?") == 0);
+    //END INT COUNT ALPHA FUNCTION
 
     return 0;
-}
+}//END MAIN
 char makeUpper(char whatever)
 {
 	char output;
@@ -81,7 +88,20 @@ string initials(string strA)
     
     return output;
 }//END INITIALS
-
-
-
-
+int countAlpha(string strA)
+{
+    int output = 0;
+    int count = 0;
+    for (count = 0; count < strA.length(); count++)
+    {
+        if (((strA[count] >= 'A') && (strA[count] <= 'Z')) || ((strA[count] >= 'a') && (strA[count] <= 'z')))
+        {
+            output ++;
+        }
+        else
+        {
+            output += 0;
+        }
+    }
+    return output;
+}//END COUNT LETTERS
