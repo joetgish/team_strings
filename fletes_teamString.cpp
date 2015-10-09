@@ -60,24 +60,13 @@ string initials(string strA)
 int countAlpha(string strA)
 {
     int letters = 0;
-    string word;
     
     for(int i = 0; i <= strA.length(); i++)
-    {   
-        if(strA[i] != ' ')
-        {
-            word += strA[i];
-            //cout << word;
-        }
-        if((strA[i] == ' ') || (i == strA.length()))
-        {
-            if(((word[i] >= 'a') && (word[i] <= 'z')) || ((word[i] >= 'A') && (word[i] <= 'Z')))
+    { 
+        if(((strA[i] >= 'a') && (strA[i] <= 'z')) || ((strA[i] >= 'A') && (strA[i] <= 'Z')))
             {
                 letters += 1;
-                word = "";
             }
-            word = "";
-        }
     }
     return letters;
 }
