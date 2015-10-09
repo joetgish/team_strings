@@ -33,6 +33,7 @@ using namespace std;
 string initials(string strA);
 int countAlpha(string strA);
 int countWords(string strA);
+bool isPalindrome(string strA);
 
 int main()
 {
@@ -45,7 +46,10 @@ int main()
     
     string strC;
     strC ="words hello";
-    assert(countWords(strC) ==10);
+    assert(countWords(strC) == 10);
+    
+    string word = "wow";
+    assert(isPalindrome(word) == 1);
 
     
     
@@ -110,4 +114,30 @@ int countWords(string strA)
     return counter;
        
 }
+bool isPalindrome(string strA)
+{
+    string store, store2;
+    bool result = 1;
+    for(int i =0; i <strA.length(); i++)
+    {
+        store = store + strA[i];
+       // cout << store << endl;
+    }
+    for(int i= strA.length()-1;0 <= i;i--)
+    {
+        store2 = store2 + strA[i];
+       // cout << store2 << endl;
+    }
+    //cout << store << endl;
+    //cout << store2 << endl;
+    if(store2 == store )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 
