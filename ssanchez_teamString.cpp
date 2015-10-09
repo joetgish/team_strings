@@ -19,9 +19,9 @@ bool isPalindrome(string strA); // receives a string and returns true if the str
 
 int main()
 {     
-    string nameOne("Samuel J Sanchez");
-    string nameTwo("Johnny B. Goode");
-    string nameThree("Dwight D. Eisenhower");
+    string nameOne("Samuel J Sanchez"); // passes
+    string nameTwo("Johnny B. Goode"); // passes
+    string nameThree("Dwight D. Eisenhower"); // passes
     
     string sentenceOne();
     string sentenceTwo();
