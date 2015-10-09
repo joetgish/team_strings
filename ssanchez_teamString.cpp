@@ -21,6 +21,7 @@ int main()
 {     
     string nameOne("Samuel J Sanchez");
     string nameTwo("Johnny B. Goode");
+    string nameThree("Dwight D. Eisenhower");
     
     string sentenceOne();
     string sentenceTwo();
@@ -34,6 +35,8 @@ int main()
     cout << "Initials for " << nameOne << ": " << initials(nameOne) << endl;
     assert(initials(nameTwo) == "JBG");
     cout << "Initials for " << nameTwo << ": " << initials(nameTwo) << endl;
+    assert(initials(nameThree) == "DJ");
+    cout << "Initials for " << nameThree << ": " << initials(nameThree) << endl;
     assert(countAlpha("abc123") == 3);
     cout << "Number of letters: " << countAlpha("abc123") << endl;
     assert(countAlpha("12341A214---") == 1);
