@@ -33,11 +33,14 @@ int main()
     assert(countAlpha("125 and if ?!3") == 5);
     assert(countAlpha("ZAza do3s th15 w0rk?") == 12);*/
     
-    cout << countWords("my name is my name is") << endl;
-    assert(countWords("my name is my name is") == 6);
+  /*assert(countWords("my name is my name is") == 6);
     assert(countWords("the") == 1);
     assert(countWords("") == 0);
-    assert(countWords("a") == 1);    
+    assert(countWords("a") == 1);*/
+    
+  /*assert(isPalindrome("racecar") == true);
+    assert(isPalindrome("false") == false);
+    assert(isPalindrome(" wo w ") == true);*/ 
     
     return 0;
      
@@ -88,23 +91,23 @@ int countAlpha(string strA)
 int countWords(string strA)
 {
     int count = 1;//count the words in a string
-    
-    if(strA.length() == 0)
+//white spaces plus 1 = the amount of words
+    if(strA.length() == 0)//in the case of an empty string return 0
     {
         return 0;
     } 
     
-    while(strA[0] == ' ')
+    while(strA[0] == ' ')//remove white space from the beginning of the string
     {
         strA.erase(0,1);
     }
-    while(strA[strA.length() - 1] == ' ')
+    while(strA[strA.length() - 1] == ' ')//remove white space from the end of a string
     {
         strA.erase((strA.length() - 1),1);
     }
     
     for(int i = 0;i < strA.length(); i++)
-    {
+    {//find count and erase whitespace
         if(strA[i] == ' ')
         {
             strA.erase(i,1);
@@ -112,4 +115,26 @@ int countWords(string strA)
         }
     }   
     return count;
+}
+
+bool isPalindrome(string strA)
+{
+    int end;//variable to hold the last position in the string
+    for(int i = 0;i < strA.length(); i++)//remove white space
+    {
+        if(strA[i] == ' ')
+        {
+            strA.erase(i,1);
+        }
+    }
+    end = strA.length() - 1;//last position in the string    
+    for(int i = 0;i < strA.length(); i++)
+    {//check if the characters are the same if you read backwards and forwards
+        if(strA[i] != strA[end])
+        {//if characters are not the same return false
+            return false;
+        }
+        end--; 
+    }   
+    return true;
 }
