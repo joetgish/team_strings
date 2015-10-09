@@ -19,7 +19,7 @@ string initials(string strA);
 // receives a string comprising first, middle and last name and returns the initials of each name, capitalized
 // TEST: Maria Sera Turing returns  MST
 
-//int countAlpha(string strA)
+int countAlpha(string strA);
 // receives a string comprising a sentence, counts and returns the number of alphabetical 
 // characters a -> z  and A -> Z are the alphabetical characters. 
 
@@ -33,9 +33,13 @@ string initials(string strA);
 int main()
 {
     
-    assert(initials("maria sera turing") == "MST");
-    assert(initials("andrea Marcela gomez") == "AMG");
-    assert(initials("Ben Andrew Lopez") == "BAL");
+    //assert(initials("maria sera turing") == "MST");
+    //assert(initials("andrea Marcela gomez") == "AMG");
+    //assert(initials("Ben Andrew Lopez") == "BAL");
+    
+    assert(countAlpha("Ben Andrew 234325#$@5! ") == 9);
+    assert(countAlpha("ABCabc123!@#") == 6);
+    assert(countAlpha("234%^&*123!@#") == 0);
     cout << "It works!"<< endl;
 
     return 0;
@@ -46,14 +50,24 @@ string initials(string strA)
     string initials = strA.substr(0,1);
     initials = toupper(initials[0]);
     for(int ix(1); ix < strA.length(); ix++)
-    {
-             
+    {            
         if (strA[ix] == ' ')
         {                      
-            initials += toupper(strA[ix+1]);          
-               
-        }//if
-       
+            initials += toupper(strA[ix+1]);                        
+        }//if       
     }//for
     return initials;
 }//string initials
+int countAlpha(string strA)
+{
+    int sum = 0;
+    for(int ix(0); ix < strA.length(); ix++)
+    {
+        if((strA[ix] >= 65) && (strA[ix] <= 90) || (strA[ix] >= 97) &&(strA[ix] <= 122))
+        {
+            sum ++;
+        }//if
+
+    }//for
+    return sum;
+}//countAlpha
