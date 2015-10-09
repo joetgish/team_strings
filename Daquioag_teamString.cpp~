@@ -7,21 +7,28 @@
 using namespace std;
 
 string initials(string strA); //A
+int countAlpha(string strA); //B
+int countWords(string strA); //C
 bool isPalindrome(string strA); //D
 
 int main()
 {
+    /*
     //A
-    cout << initials("Regie Cabanting Daquioag") << endl;
-    cout << initials("Maria Sera Turing") << endl;
-    cout << initials("David James Green") << endl;
-    
-    /*//D
+    assert(initials("Regie Cabanting Daquioag") == "RCD");
+    assert(initials("Maria Sera Turing") == "MST");
+    assert(initials("David James Green") == "DJG");
+    */
+    //B
+    assert(countAlpha("Peter Piper picked a peck of pickled peppers") == 37);
+    assert(countAlpha("How much wood would a woodchuck chuck if a woodchuck could chuck wood") == 57);
+    assert(countAlpha("She sells seashells by the seashore") == 30);
+    /*  
+    //D
     assert(isPalindrome("hi") == false);
     assert(isPalindrome("x") == true);
     assert(isPalindrome("R") == true);
-    */
-    
+    */    
     
     return 0;
 }
@@ -30,6 +37,8 @@ int main()
 //A
 string initials(string strA)
 {
+    // receives a string comprising first, middle and last name and returns the initials of each name, capitalized
+
     string answer;
     int length = strA.length();
     
@@ -45,9 +54,38 @@ string initials(string strA)
 }
 
 
+//B
+int countAlpha(string strA)
+{
+    // receives a string comprising a sentence, counts and returns the number of alphabetical 
+// characters a -> z  and A -> Z are the alphabetical characters. 
+
+    int countAlphaCount = 0;
+    int length = strA.length();
+    
+    for (int ix = 0;ix < length; ix++)
+    {
+        if ((strA[ix] >= 'A' && strA[ix] <= 'Z') || (strA[ix] >= 'a' && strA[ix] <= 'z'))
+        {
+            countAlphaCount++;
+        }
+    }
+    return countAlphaCount;
+}
+
+//C
+int countWords(string strA)
+{
+// receives a string comprising a sentence, counts and returns the number of words in a the sentence.
+// words are separated by spaces.
+}
+
 //D
 bool isPalindrome(string strA)
 {
+    // receives a string and returns true if the string is a palindrome
+// a one character string will be considered a palindrome
+
     int length = strA.length();
     
         if (length == 1)
