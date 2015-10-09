@@ -20,4 +20,12 @@ bool isPalindrome(string strA)
 // receives a string and returns true if the string is a palindrome
 // a one character string will be considered a palindrome
 
+ /*for(int ix=0; ix < strA.length(); ix++)
+    {
+        if((strA.at(ix) >= 'A') && (strA.at(ix) <= 'Z'))
+        {
+           newStrA += strA.at(ix);
+        }
+    }*/
 
+bool isPalindrome(string strA);
