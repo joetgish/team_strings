@@ -1,5 +1,5 @@
 // team_strings HW assignment
-// Fully implement the functions below and answer the questions provided. 
+// Fully implement the functions below, incorporating asserts as appropriate to test.
 // // Name your C++ file: lastName_teamString.cpp
 //
 //
