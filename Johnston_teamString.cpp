@@ -27,34 +27,32 @@ int main()
     assert(initials("Maria Sera Turing") == "MST");
     assert(initials("coleman Maverick johnston") == "CMJ");
     assert(initials("  zoe  ana hobbnobber") == "ZAH");
-    assert(initials("  zoe   ana ") == "ZA");
+    assert(initials("  Zoe   Ana ") == "ZA");
     return 0; 
 }
 
 string initials(string strA)
 {
     string returnInitials;
-    int nxtWhiteSpace = 0; 
-    int letter = 0; 
+    int nxtWhiteSpace = 0;//Variable to hold the position of the next whitespace(starts at zero to start process) 
    
-    while(strA.length() > letter)
+    while(strA.length() > nxtWhiteSpace)//run while there are still spaces
     {
-        if((strA[letter] >= 'A' && strA[letter] <= 'Z') || (strA[letter] >= 'a' && strA[letter] <='z'))
-        {
-            returnInitials += strA[letter]; 
+        if((strA[nxtWhiteSpace] >= 'A' && strA[nxtWhiteSpace] <= 'Z') || (strA[nxtWhiteSpace] >= 'a' && strA[nxtWhiteSpace] <='z'))
+        {//check to make sure strA at a position is a letter. If so put a the letter into the new string
+            returnInitials += strA[nxtWhiteSpace]; 
         }
         
-        nxtWhiteSpace = strA.find(" ");
-        letter = nxtWhiteSpace;
+        nxtWhiteSpace = strA.find(" ");//find next white space
         
-        if(nxtWhiteSpace < strA.length())
+        if(nxtWhiteSpace < strA.length())//if there is still a white space erase the white space
             {
-                strA.erase(nxtWhiteSpace,1);
-            }
+                strA.erase(nxtWhiteSpace,1); 
+            }//then nxtWhiteSpace becomes the first letter in the next word
     }
     
     for(int i = 0;i < returnInitials.length(); i++)
-    {
+    {//change letters in returnInitials to uppercase
         returnInitials[i] = toupper(returnInitials[i]);
     }
     

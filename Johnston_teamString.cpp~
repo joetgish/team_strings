@@ -27,25 +27,23 @@ int main()
     assert(initials("Maria Sera Turing") == "MST");
     assert(initials("coleman Maverick johnston") == "CMJ");
     assert(initials("  zoe  ana hobbnobber") == "ZAH");
-    assert(initials("  zoe ana ") == "ZA");
+    assert(initials("  zoe   ana ") == "ZA");
     return 0; 
 }
 
 string initials(string strA)
 {
     string returnInitials;
-    int nxtWhiteSpace = 0; 
-    int letter = 0; 
+    int nxtWhiteSpace = 0;// 
    
-    while(strA.length() > letter)
+    while(strA.length() > nxtWhiteSpace)
     {
-        if((strA[letter] >= 'A' && strA[letter] <= 'Z') || (strA[letter] >= 'a' && strA[letter] <='z'))
+        if((strA[nxtWhiteSpace] >= 'A' && strA[nxtWhiteSpace] <= 'Z') || (strA[nxtWhiteSpace] >= 'a' && strA[nxtWhiteSpace] <='z'))
         {
-            returnInitials += strA[letter]; 
+            returnInitials += strA[nxtWhiteSpace]; 
         }
         
         nxtWhiteSpace = strA.find(" ");
-        letter = nxtWhiteSpace;
         
         if(nxtWhiteSpace < strA.length())
             {
