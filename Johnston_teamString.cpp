@@ -24,11 +24,17 @@ bool isPalindrome(string strA);
 
 int main()
 {
-    assert(initials("Maria Sera Turing") == "MST");
+  /*assert(initials("Maria Sera Turing") == "MST");
     assert(initials("coleman Maverick johnston") == "CMJ");
     assert(initials("  zoe  ana hobbnobber") == "ZAH");
-    assert(initials("  Zoe   Ana ") == "ZA");
-    return 0; 
+    assert(initials("  Zoe   Ana ") == "ZA");*/
+    
+    assert(countAlpha("abs bReAkIng") == 11);
+    assert(countAlpha("125 and if ?!3") == 5);
+    assert(countAlpha("ZAza do3s th15 w0rk?") == 12);
+    
+    return 0;
+     
 }
 
 string initials(string strA)
@@ -57,4 +63,18 @@ string initials(string strA)
     }
     
     return returnInitials;
+}
+
+int countAlpha(string strA)
+{
+    int count = 0;//counts the number of characters  
+    
+    for(int i = 0; i < strA.length(); i++)
+    {//if strA at a value is a letter add one to count
+        if (toupper(strA[i]) >= 'A' && toupper(strA[i]) <= 'Z')
+        {
+            count++;
+        }
+    }
+    return count;   
 }
