@@ -31,17 +31,26 @@
 
 using namespace std;
 string initials(string strA);
+int countAlpha(string strA);
+int countWords(string strA);
 
 int main()
 {
     string strA = "name is jesus";
     assert(initials(strA) == "nij");
-    cout <<" IT PASSES" << endl;
+    
+    string strB;
+    strB ="wordsHGh";
+    assert(countAlpha(strB) == 8);
+    
+    string strC;
+    strC ="words hello";
+    assert(countWords(strC) ==10);
 
     
     
     
-    
+    cout <<" IT PASSES" << endl;
     
     return 0;
     
@@ -70,5 +79,35 @@ string initials(string strA)
     
     return strC;
 }
-
+int countAlpha(string strB)
+{
+    int counter = 0;
+    for( int i = 0; i < strB.length(); i++)
+    {
+        if((strB[i] >= 65) && (strB[i] <= 90))
+        {
+            counter++;
+        }
+        if((strB[i] >= 97 ) && (strB[i] <= 120))
+        {
+            counter++;
+        }
+    }
+    return counter;
+}
+int countWords(string strA)
+{   
+    int counter =0;
+    for(int i = 0; i<strA.length();i++)
+    {
+    
+    if(!((strA[i]-48 >=0) && (strA[i]-48<= 9)))
+        if((strA[i] >=65) && (strA[i] <=90) || (strA[i] >=97) && (strA[i] <=120))
+        {
+            counter++;
+        }
+    }
+    return counter;
+       
+}
 

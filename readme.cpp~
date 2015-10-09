@@ -31,12 +31,13 @@
 
 using namespace std;
 string initials(string strA);
-cout <<" IT PASSES" << endl;
 
 int main()
 {
     string strA = "name is jesus";
     assert(initials(strA) == "nij");
+    cout <<" IT PASSES" << endl;
+
     
     
     
