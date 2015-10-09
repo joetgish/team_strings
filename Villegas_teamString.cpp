@@ -30,6 +30,7 @@ int main (){
     cout << initials("Sarah Brianne Villegas") << endl;
     cout << countAlpha("steven87932tv") << endl;
     cout << countWords("i love my dog bubba he's awesome") << endl;
+    cout << isPalindrome("racecar") << endl;
 
 
     return 0; 
@@ -91,15 +92,24 @@ int countWords(string strA){
 
     return onlyWords;
 }
-/*
+
 bool isPalindrome(string strA){
 
-
-
-
-
-
+    string newWord;
+    for(int i = strA.length() -1 ; i >= 0; i-- ){
+    
+        newWord += strA[i];
+    
+    }
+    if (strA == newWord){
+    
+         return true;
+    }
+    else {
+    
+        return false;
+    }
 }
-*/
+
 
 
