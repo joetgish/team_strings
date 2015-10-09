@@ -26,10 +26,10 @@ int main()
     assert(countWords("It's cold right now, can I borrow your jacket?") == 9);
     assert(countWords("Friends talk behind your back while a bestfriend compliments you behind your back.") == 13);
     
-    cout << isPalindrome("a") << endl;
-    cout << isPalindrome("elle") << endl;    
-    cout << isPalindrome("no.") << endl;
-    
+    assert(isPalindrome("a") == true);
+    assert(isPalindrome("hannah") == true);
+    assert(isPalindrome("is it really?") == false);
+        
     return 0;
 }   
 
