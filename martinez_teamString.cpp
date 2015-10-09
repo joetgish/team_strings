@@ -31,6 +31,7 @@ using namespace std;
 string initials(string strA); //prototype receives a string comprising first, middle and last name and
 int countAlpha(string strA);
 int countWords(string strA);
+bool isPalindrome(string strA);
 
 int main()
 {
@@ -45,11 +46,17 @@ int main()
     assert(countAlpha("Cohort") == 6);
     assert(countAlpha("CSIN3") == 4);
     assert(countAlpha("Work Hard") == 8);
-    */
+    
     //Test cases for the countWords function
     assert(countWords("Hartnell is the best college") == 5);
     assert(countWords("Welcome") == 1);
     assert(countWords("receives a string comprising a sentence, counts and returns the number of words in a the sentence.") == 17);
+    */
+    //Test cases for isPalindrome function
+    assert(isPalindrome("a") == 1);
+    assert(isPalindrome("dad") == 1);
+    assert(isPalindrome("Hello") == 0);
+    assert(isPalindrome("Racecar") == 1);
 
     return 0;
 }
@@ -94,6 +101,7 @@ int countWords(string strA)
 {
     int number_of_Words = 0;
     string initials;
+    
     for(int i = 0; i < strA.length(); i++)
     {
         if(strA[i] != ' ')
@@ -107,4 +115,29 @@ int countWords(string strA)
     }
 
     return number_of_Words;
+}
+
+bool isPalindrome(string strA)
+{
+    string reverse;
+    string lowerCase;
+    string initials;
+    char letter;
+    
+    for(int ix = 0; ix < strA.length(); ix++)
+    {
+        letter = tolower(strA[ix]);
+        lowerCase = lowerCase + letter;
+    }
+    
+    for(int i = lowerCase.length()-1; i >= 0; i--)
+    {
+        reverse = reverse + lowerCase[i];
+    }
+    if( reverse == lowerCase)
+    {
+        return true;
+    }
+    
+    return false;
 }
