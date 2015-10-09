@@ -28,7 +28,7 @@ int main (){
 
 
     cout << initials("Sarah Brianne Villegas") << endl;
-
+    cout << countAlpha("steven87932tv") << endl;
 
 
     return 0; 
@@ -53,14 +53,25 @@ string initials(string strA){
     }
     return newName;
 }
-/*
+
 int countAlpha(string strA){
 
-
-
+    int wordCount =0;
+    for(int i = 0; i < strA.length();i++){
+    
+        if ((strA[i] >= 'a') && (strA[i] <= 'z')){
+        
+            wordCount++;
+        }
+        if ((strA[i] >= 'A') && (strA[i] <= 'Z')){
+        
+            wordCount++;
+        }
+    }
+    return wordCount;
 
 }
-
+/*
 int countWords(string strA){
 
 
