@@ -29,6 +29,7 @@ int main (){
 
     cout << initials("Sarah Brianne Villegas") << endl;
     cout << countAlpha("steven87932tv") << endl;
+    cout << countWords("i love my dog bubba he's awesome") << endl;
 
 
     return 0; 
@@ -56,7 +57,7 @@ string initials(string strA){
 
 int countAlpha(string strA){
 
-    string wordCount =0;
+    int wordCount =0;
     for(int i = 0; i < strA.length();i++){
     
         if ((strA[i] >= 'a') && (strA[i] <= 'z')){
@@ -71,16 +72,26 @@ int countAlpha(string strA){
     return wordCount;
 
 }
-/*
+
 int countWords(string strA){
 
+    int onlyWords =0;
+    string word;
+    for(int i = 0; i <= strA.length(); i++){
+    
+         if (( strA [i] == ' ') || (i == end )){
+            
+            onlyWords++;
+        }
+        if (strA[i] != ' '){
+            //captures each word 
+            word += strA[i];
+        }
+    }
 
-
-
-
-
+    return onlyWords;
 }
-
+/*
 bool isPalindrome(string strA){
 
 
