@@ -23,7 +23,7 @@ int countAlpha(string strA);
 // receives a string comprising a sentence, counts and returns the number of alphabetical 
 // characters a -> z  and A -> Z are the alphabetical characters. 
 
-//int countWords(string strA)
+int countWords(string strA);
 // receives a string comprising a sentence, counts and returns the number of words in a the sentence.
 // words are separated by spaces.
 
@@ -37,8 +37,13 @@ int main()
     //assert(initials("andrea Marcela gomez") == "AMG");
     //assert(initials("Ben Andrew Lopez") == "BAL");
     
-    assert(countAlpha("Ben Andrew 234325#$@5! ") == 9);
-    assert(countAlpha("ABCabc123!@#") == 6);
+    //assert(countAlpha("Ben Andrew 234325#$@5! ") == 9);
+    //assert(countAlpha("ABCabc123!@#") == 6);
+    //assert(countAlpha("234%^&*123!@#") == 0);
+    
+    assert(countWords("one two three four") == 4);
+    assert(countWords("one two") == 2);
+    assert(countWords("one ") == 0);
     cout << "It works!"<< endl;
 
     return 0;
@@ -70,3 +75,16 @@ int countAlpha(string strA)
     }//for
     return sum;
 }//countAlpha
+int countWords(string strA)
+{
+    int count = 0;
+    for (int ix(0); ix < strA.length(); ix++)
+    {
+        if (strA[ix] == ' ')
+        {
+            count ++;
+        }//if
+    
+    }//for
+    return count + 1;
+}//countWords
