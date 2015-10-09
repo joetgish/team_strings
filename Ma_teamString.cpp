@@ -31,7 +31,7 @@ int main()
     cout << "Please enter your full name (first, middle, last)." << endl;
     getline(cin, input);
     cout << initials(input) << endl;
-    cout << "PANDAS WILL SMILE!" << endl;
+    
     assert(initials("Maria Sera Turing") == "MST");
     assert(initials("Mavey june Ma") == "MJM");
     assert(initials("terra lockheart laforet") == "TLL");
@@ -43,7 +43,15 @@ int main()
     assert(countAlpha("C0mput3r5 4ever") == 10);
     assert(countAlpha("{}|+-)(*&^%$#@!~?") == 0);
     //END INT COUNT ALPHA FUNCTION
+    
+    //INT COUNT WORDS FUNCTION
+    assert(countWords("Hi hi hi") == 3);
+    assert(countWords("what") == 1);
+    assert(countWords("What makes you happy?") == 4);
+    assert(countWords("If you want to be happy, be.") == 7);
+    //END INT COUNT WORDS FUNCTION
 
+    cout << "PANDAS WILL SMILE!" << endl;
     return 0;
 }//END MAIN
 char makeUpper(char whatever)
@@ -105,3 +113,21 @@ int countAlpha(string strA)
     }
     return output;
 }//END COUNT LETTERS
+int countWords(string strA)
+{
+    int output = 0;
+    int count = 0;
+    for (count = 0; count < strA.length(); count++)
+    {
+        if (strA[count] == ' ')
+        {
+            output ++;
+        }
+        else
+        {
+            output += 0;
+        }
+    }
+    output ++; //FOR THE EXTRA WORD AT THE END THAT IS NOT FOLLOWED BY A SPACE
+    return output; 
+}//END COUNT WORDS
