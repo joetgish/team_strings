@@ -8,7 +8,9 @@ using namespace std;
 
 string initials(string strA); // receives first, middle, and last name then returns only the
 							  // initials capitalized
-
+int countAlpha(string strA); // receives a string and outputs the number of alphabetical
+							 // characters
+							 
 int main()
 {
 	assert(initials("Maria Sera Turing") == "MST");
@@ -16,6 +18,12 @@ int main()
 	assert(initials("Maria sera Turing") == "MST");
 	assert(initials("George W. Bush") == "GWB");
 	assert(initials("Martin luther King") == "MLK");
+	
+	assert(countAlpha("I really like pie.") == 14);
+	assert(countAlpha("I ate 3400 pies last night.") == 17);
+	assert(countAlpha("The cake is a lie.") == 13);
+	assert(countAlpha("Don't make contracts with weird-looking animals.") == 40);
+	assert(countAlpha("How many letters are in this string? 29?") == 29);
 	
 	cout << "Code ran correctly :D" << endl;
 
@@ -38,5 +46,19 @@ string initials(string strA)
 	}
 	
 	return firstInitial + middleInitial + lastInitial;	
+}
+
+int countAlpha(string strA)
+{
+	int count = 0;
+	for (int ix = 0; ix < strA.length(); ix++)
+	{
+		if ((strA[ix] >= 65 && strA[ix] <= 90) || (strA[ix] >= 97 && strA[ix] <= 122))
+		{
+			count++; // increases count if the current index has a letter
+		}
+	}
+	
+	return count;
 }
 		
