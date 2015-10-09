@@ -22,15 +22,22 @@ int countWords(string strA);
 // words are separated by spaces.
 
 
+
 int main()
 {
     string fullName = "Maria Sera Turing";
-    assert(initials(fullName) == "MST");
+    cout
+        << "\nFull Name: " << fullName << endl
+        << "Initials: " << initials(fullName) << endl;
     
-    string sentence = "Hello! My name is Chanel, and I enjoy programming. Do you?";
-    assert(countAlpha(sentence) == 44);
     
-    assert(countWords(sentence) == 11);
+    string sentence = "Hello! I attend Hartnell College as a CSin3 scholar. Do you like programming?";
+    cout   
+        << "\tSentence: " << sentence << endl
+        << "\tLetter Count: " << countAlpha(sentence) << endl
+        << "\tWord Count: " << countWords(sentence) << endl;
+        
+    
     return 0;
     
 }   // main()
@@ -57,6 +64,7 @@ string initials(string strA)
 //******************************
 int countAlpha(string strA)
 {
+    strA += ' ';    // append a whitespace after string strA
     int result = 0;  // create an empty string
     
     // traverse through each character in strA
@@ -72,3 +80,27 @@ int countAlpha(string strA)
     return result;
 }   // countAlpha()
 
+//******************************
+int countWords(string strA)
+{
+    strA += ' ';    // append a whitespace after string strA
+    int result = 0;  // create an empty string
+    string word;
+    
+    // traverse through each character in strA
+    int ix = 0;
+    while(ix < strA.length())
+    {
+        
+        word = strA.substr(ix, strA.find(' ', ix) );
+        /*  divide strA into words (ie., substrings)
+            that start at the current index [ix]
+            and have a length equivalent to the index 
+            where a whitespace is located   */
+            
+        ix = strA.find(' ', ix) + 1;    // re-assign [ix] to be the value after the whitespace
+        result++;   // increment result after each substring is obtained
+    }
+    
+    return result;
+}   // countWords()
