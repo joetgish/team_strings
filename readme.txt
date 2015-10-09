@@ -27,7 +27,5 @@ bool isPalindrome(string strA)
            newStrA += strA.at(ix);
         }
     }*/
-    
-int countAlpha(string strA);
-int countWords(string strA);
+
 bool isPalindrome(string strA);

@@ -17,21 +17,28 @@ int countAlpha(string strA);
 int countWords(string strA); 
 //Returns the number of words in a the sentence.
 
-
+bool isPalindrome(string strA);
+//returns true if the string is a palindrome.
 
 int main()
 {
-    /*assert(initials("Thalia Ivette Villalobos") == "TIV");       
+    assert(initials("Thalia Ivette Villalobos") == "TIV");       
     assert(initials("maria Sera turing") == "MST"); 
     assert(initials("juan jose sera") == "JJS"); 
     
-    assert(countAlpha("juan") == 4);
+    assert(countAlpha("2465") == 0);
     assert(countAlpha("Pink House") == 9);
     assert(countAlpha("Thalia Ivette Villalobos") == 22);
-    */
+    
     assert(countWords("Pink House") == 2);
     assert(countWords("1215") == 0);
     assert(countWords("Today is Friday!") == 3);
+  
+    assert(isPalindrome("Anna") == true);
+    assert(isPalindrome("level") == true);
+    assert(isPalindrome("PinkHouse") == false);
+    
+    //cout << "It Works!! " << endl;
     return 0;
 }
 
@@ -95,6 +102,42 @@ int countWords(string strA)
     //cout << counter << endl;
    
     return counter;    
+}
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+bool isPalindrome(string strA)
+{
+    string newStrA, newStrB;
+    char valA, valB;
+   
+   //Make the word backward and make then lower case
+    for(int ix= strA.length()-1; ix >= 0; ix--)
+    {   
+        valA = strA.at(ix);
+        valA = tolower(valA);
+        newStrA += valA;
+    }
+    
+   //Make the word lower case goint forward
+    for(int ix=0; ix < strA.length(); ix++)
+    {
+        valB = strA.at(ix);
+        valB = tolower(valB);
+        newStrB += valB;
+    }
+    
+    //cout << newStrA << endl;
+    //cout << newStrB << endl;
+   
+   //Checks if the word going backwards and forwards are the same.
+    if(newStrA == newStrB)
+    {
+       return true;
+    }
+    else
+    {
+       return false;
+    }     
 }
 
 
