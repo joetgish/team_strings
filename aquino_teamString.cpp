@@ -34,21 +34,21 @@ int main()
     string fullName = "Maria Sera Turing";
     cout
         << "\nFull Name: " << fullName << endl
-        << "Initials: " << initials(fullName) << endl;
+        << "Initials: " << initials(fullName) << endl;  // test initials()
     
     
     string sentence = "Hello! I attend Hartnell College as a CSin3 scholar. Do you like programming?";
     cout   
         << "\tSentence: " << sentence << endl
-        << "\tLetter Count: " << countAlpha(sentence) << endl
-        << "\tWord Count: " << countWords(sentence) << endl;
+        << "\tLetter Count: " << countAlpha(sentence) << endl   // test countAlpha()
+        << "\tWord Count: " << countWords(sentence) << endl;    // test countWords()
     
     string randomLetters = "1a2l3s4k5d6j7f8h9g0", sameWord = "rot a renegade wed a generator";
     cout 
         << "Non-palindrome: " << randomLetters << endl
-        << "Should be false: " << boolalpha << isPalindrome(randomLetters) << endl
+        << "Should be false: " << boolalpha << isPalindrome(randomLetters) << endl  // test isPalindrome == false
         << "Palindrome: " << sameWord << endl
-        << "Should be true: " << boolalpha << isPalindrome(sameWord) << endl;
+        << "Should be true: " << boolalpha << isPalindrome(sameWord) << endl;       // test isPalindrome == true
          
     
     return 0;
