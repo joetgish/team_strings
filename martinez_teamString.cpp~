@@ -35,10 +35,8 @@ bool isPalindrome(string strA);
 
 int main()
 {
-    string strA = "mario Martinez Alex";
-/*
     //Test cases for the initials function
-    assert(initials(name) == "MMA");
+    assert(initials("mario Martinez Alex") == "MMA");
     assert(initials("Jose luna jr") == "JLJ");
     assert(initials("Maria Sera Turing") == "MST");
     
@@ -51,14 +49,12 @@ int main()
     assert(countWords("Hartnell is the best college") == 5);
     assert(countWords("Welcome") == 1);
     assert(countWords("receives a string comprising a sentence, counts and returns the number of words in a the sentence.") == 17);
-    */
+
     //Test cases for isPalindrome function
     assert(isPalindrome("a") == 1);
     assert(isPalindrome("dad") == 1);
     assert(isPalindrome("Hello") == 0);
     assert(isPalindrome("Racecar") == 1);
-    
-    cout << isPalindrome(strA) << endl;
 
     return 0;
 }
@@ -85,7 +81,7 @@ string initials(string strA)//prototype receives a string comprising first, midd
     return init;
 }
 
-int countAlpha(string strA)
+int countAlpha(string strA)// counts all the letters in a string
 {
     int count = 0;
     for(int i = 0; i < strA.length(); i++)
@@ -99,7 +95,7 @@ int countAlpha(string strA)
     return count;
 }
 
-int countWords(string strA)
+int countWords(string strA)// counts the number of words in a string.
 {
     int number_of_Words = 0;
     string initials;
@@ -119,7 +115,7 @@ int countWords(string strA)
     return number_of_Words;
 }
 
-bool isPalindrome(string strA)
+bool isPalindrome(string strA)//returns true or false if the words is a palindrome
 {
     string reverse;
     string lowerCase;
