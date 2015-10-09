@@ -23,8 +23,9 @@ int main()
     string nameTwo("Johnny B. Goode"); // passes
     string nameThree("Dwight D. Eisenhower"); // passes
     
-    string sentenceOne();
-    string sentenceTwo();
+    string sentenceOne("My name is Indigo Montoya...");
+    string sentenceTwo("Red leader 1 this is-M1k3");
+    string sentenceThree("SPACCCCCCCCEEEEEEEEEEEE");
     
     string palindromeOne("racecar"); // passes
     string palindromeTwo("tacocat"); // passes
@@ -41,12 +42,12 @@ int main()
     cout << "Number of letters: " << countAlpha("abc123") << endl;
     assert(countAlpha("12341A214---") == 1);
     cout << "Number of letters: " << countAlpha("12341A214---") << endl;
-    assert(countWords("My name is Indigo Montoya...") == 5);
-    cout << "Word Count: "<< countWords("My name is Indigo Montoya...")<< endl;
-    assert(countWords("Red leader 1 this is-M1k3") == 5 );
-    cout << "Word Count: " <<countWords("Red leader 1 this is-M1k3")<< endl;
-    assert(countWords("SPACCCCCCCCEEEEEEEEEEEE") == 1 );
-    cout << "Word Count: "<< countWords("SPACCCCCCCCEEEEEEEEEEEE")<< endl;
+    assert(countWords(sentenceOne) == 5);
+    cout << "Word Count: "<< countWords(sentenceOne)<< endl;
+    assert(countWords(sentenceTwo) == 5 );
+    cout << "Word Count: " <<countWords(sentenceTwo)<< endl;
+    assert(countWords(sentenceThree) == 1 );
+    cout << "Word Count: "<< countWords(sentenceThree)<< endl;
     assert(isPalindrome(palindromeOne) == true);
     cout << "The word \""<< palindromeOne << "\" is "<< isPalindrome(palindromeOne)<< endl;
     assert(isPalindrome(palindromeTwo) == true);
