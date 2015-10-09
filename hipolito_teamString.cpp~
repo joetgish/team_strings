@@ -9,6 +9,7 @@ using namespace std;
 
 string initials(string strA);
 int countAlpha(string strA);
+int countWords(string strA);
 
 int main()
 {
@@ -20,8 +21,12 @@ int main()
     assert(countAlpha("Hey I think cats are amazing.") == 23);
     assert(countAlpha("Seriously, I don't even know what I'm doing") == 33);
     
+    assert(countWords("I just want to lay in bed and sleep all day") == 11);
+    assert(countWords("It's cold right now, can I borrow your jacket?") == 9);
+    assert(countWords("Friends talk behind your back while a bestfriend compliments you behind your back.") == 13);
+    
     return 0;
-}
+}   
 
 string initials(string strA)
 {
@@ -39,8 +44,7 @@ string initials(string strA)
 }
 
 int countAlpha(string strA)
-{// receives a string comprising a sentence, counts and returns the number of alphabetical 
-// characters a -> z  and A -> Z are the alphabetical characters. 
+{
     int count = 0;
     char letter;
     for(int i = 0; i < strA.length(); i++)
@@ -53,3 +57,25 @@ int countAlpha(string strA)
     }
     return count;
 }
+
+int countWords(string strA)
+{
+    int count = 0;
+    char letter;
+    for(int i = 0; i < strA.length(); i++)
+    {
+        letter = strA.at(i);
+        if(letter == 32) //ascii value of whitespace
+        {
+            count ++;
+        }
+    }
+    return count + 1;
+}
+
+
+
+
+
+
+
